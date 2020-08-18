@@ -1,0 +1,38 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-portalr360-dev-174253-authRole",
+			"UnauthRoleArn": "arn:aws:iam::933780355907:role/amplify-portalr360-dev-174253-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::933780355907:role/amplify-portalr360-dev-174253-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "amplify-portalr360-dev-174253-deployment",
+			"UnauthRoleName": "amplify-portalr360-dev-174253-unauthRole",
+			"StackName": "amplify-portalr360-dev-174253",
+			"StackId": "arn:aws:cloudformation:us-east-1:933780355907:stack/amplify-portalr360-dev-174253/e1a93a20-c87e-11ea-9567-0ef7f3f34731",
+			"AmplifyAppId": "d3m7ezpipr7w7y"
+		}
+	},
+	"auth": {
+		"portalr3608121e652": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false,
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-portalr360-dev-174253-deployment/amplify-cfn-templates/auth/portalr3608121e652-cloudformation-template.yml",
+				"logicalId": "authportalr3608121e652"
+			},
+			"lastPushTimeStamp": "2020-07-18T00:11:04.962Z",
+			"output": {
+				"AppClientSecret": "5k20k4i65eoh4r90pm83kaeoih808qrb3qiglttdtkgnc98tksa",
+				"UserPoolId": "us-east-1_HQDEIqLNS",
+				"AppClientIDWeb": "1utu4g6aqgotbkp625pvldl9b4",
+				"AppClientID": "2utee6udfus6hvi7p98kv0ir3p",
+				"IdentityPoolId": "us-east-1:6a0ca329-ff5a-4939-b4da-ffdcb3ab77af",
+				"IdentityPoolName": "portalr3608121e652_identitypool_8121e652__dev",
+				"UserPoolName": "portalr3608121e652_userpool_8121e652"
+			},
+			"lastPushDirHash": "wS2YrhUGfxnlSVwL0xa5fXpVuxw="
+		}
+	}
+}

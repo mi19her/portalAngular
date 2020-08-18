@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"portalr3608121e652": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}

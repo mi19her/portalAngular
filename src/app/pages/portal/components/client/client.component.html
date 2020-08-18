@@ -1,0 +1,38 @@
+<div>
+    <mat-list-item mat-icon-button class="cliente">
+        <img mat-list-icon [src]="this.getCLiente.getIconCliente(id)" matTooltip={{name.toString()}} >
+        <p matLine *ngIf="isExpanded">{{this.changeData.directionsMinuscula(name)}}</p>
+        <mat-icon mat-icon-button (click)="isDrop= !isDrop" *ngIf="isExpanded && entries.length > 1">arrow_drop_down
+        </mat-icon>
+    </mat-list-item>
+    <ng-container *ngIf="isDrop" >
+        <div class="alto">
+        <div *ngIf="entries.length > 1; then multipleOptions; else oneOption" ></div>
+        <ng-template #multipleOptions>
+            <div *ngFor="let group of entries" fxLayout="column">
+                <mat-list-item mat-icon-button (click)="toggleGroup($event, group)">
+                    <img mat-list-icon [src]="group[1].items[0].icon"  matTooltip={{group[0].toString()}}/>
+                    <p matLine *ngIf="isExpanded">{{ this.changeData.directionsMinuscula(group[0]) }} </p>
+                    <span class="material-icons" *ngIf="group[1].items[0].id === id && group[0] !== 'CBC' && isExpanded ">done</span>
+                    <span mat-icon-button class="material-icons"
+                        *ngIf="group[1].items.length > 1 && group[1].show == false && isExpanded">add</span>
+                    <span mat-icon-button class="material-icons" *ngIf="group[1].show && isExpanded">remove</span>
+                </mat-list-item>
+                <div *ngIf="group[1].show && group[1].items.length > 1">
+                    <mat-list-item mat-icon-button *ngFor="let item of group[1].items" (click)="getValue($event, item)" class="item">
+                        <p matLine>{{this.changeData.directionsMinuscula(item.name)}}</p>
+                        <span class="material-icons" *ngIf="item.id === id && isExpanded">done</span>
+                    </mat-list-item>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template #oneOption>
+            <mat-list-item mat-icon-button *ngFor="let item of entries[0][1].items" (click)="getValue($event, item)">
+                <img mat-list-icon [src]="item.icon"  matTooltip={{item.name.toString()}}/>
+                <p matLine>{{this.changeData.directionsMinuscula(item.name)}}</p>
+                <span class="material-icons" *ngIf="item.id === id && isExpanded">done</span>
+            </mat-list-item>
+        </ng-template>
+    </div>
+    </ng-container>
+</div>

@@ -1,0 +1,89 @@
+.example-container {
+  width: 100%;
+  height: 100%;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+.mat-drawer-inner-container {
+  overflow: hidden;
+}
+.cliente {
+  border-bottom: 0.05px solid #a8dab530;
+}
+
+.mat-list-base .mat-list-item .mat-list-icon {
+  color: #a8dab5;
+}
+
+.mat-list-base .mat-list-item .mat-list-icon:hover {
+  color: #fff;
+}
+
+.mat-list-base .mat-list-item .mat-line {
+  color: #a8dab5;
+  font-size: 14px;
+}
+
+.mat-list-base .mat-list-item .mat-line:hover {
+  color: #fff;
+  font-size: 14px;
+}
+
+.mat-nav-list .mat-list-item:hover {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), #009B3A;
+  width: 98%;
+}
+
+.active {
+  border-left: 3px solid #fff;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), #009B3A;
+}
+
+.mat-list-base {
+  overflow: hidden;
+}
+
+.mat-toolbar p{
+  font-size: 14px;
+  font-weight: lighter;
+  margin-top: 12px;
+}
+.mat-icon-button {
+  padding: 0;
+  min-width: 0;
+  width: 50px;
+  height: 55px;
+}
+.mat-icon {
+  width: 50px;
+}
+
+.circulo {
+	width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: #009b3a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 0.6rem;
+    margin-left: 0.4rem;
+    color: white;
+}
+
+.circulo > h2 {
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.size {
+  font-size: 12px;
+}

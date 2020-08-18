@@ -1,0 +1,34 @@
+<div class="marco">
+    <form [formGroup]="formChange">
+        <h2 class="margin">Actualiza tu contraseña</h2>
+        <mat-form-field [hideRequiredMarker]="hideRequiredControl">
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="oldPassword" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-label>Contraseña anterior</mat-label>
+        </mat-form-field>
+        <mat-form-field [hideRequiredMarker]="hideRequiredControl">
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="newPassword" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-label>Nueva contraseña</mat-label>
+        </mat-form-field>
+        <mat-form-field [hideRequiredMarker]="hideRequiredControl">
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmNewPassword" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-label>Confirma tu nueva contraseña</mat-label>
+            <mat-error *ngIf="!confirmNewPassInput.valid">
+                {{message()}}
+            </mat-error>
+        </mat-form-field>
+        <p class="size">La contraseña debe tener más de 6 caracteres, incluir mayúsculas, minúsculas, números y
+            caracteres especiales</p>
+        <button mat-raised-button color="accent" routerLinkActive="router-link-active" type="button"
+            (click)="changePass()" [disabled]="!formChange.valid" *ngIf="!load; else sppin">
+            Actualizar contraseña
+        </button>
+        <ng-template #sppin>
+            <button class="sppin">
+                <mat-spinner *ngIf="load" [diameter]="30"></mat-spinner>
+            </button>
+        </ng-template>
+    </form>
+</div>

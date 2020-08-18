@@ -1,0 +1,26 @@
+<form [formGroup]="formPass">
+    <h2 class="margin" >¡Antes de empezar!</h2>
+    <p>Por tu seguridad, es necesario que cambies la contraseña provisional que te proporcionamos.</p>
+    <mat-form-field [hideRequiredMarker]="hideRequiredControl">
+        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="newPass" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-label>Nueva contraseña</mat-label>
+    </mat-form-field>
+    <mat-form-field [hideRequiredMarker]="hideRequiredControl">
+        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="confirmNewPass" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-label>Confirma tu nueva contraseña</mat-label>
+        <mat-error *ngIf="!inputConfirmPass.valid">
+            {{message()}}
+        </mat-error>
+    </mat-form-field>
+    <p class="size" >Asegúrate que la contraseña tenga más de 6 caracteres, incluya mayúsculas, minúsculas, números y caracteres especiales</p>
+    <button mat-raised-button color="accent" (click)="firstPass()" [disabled]="!formPass.valid" *ngIf="!load; else sppin">
+        Ingresar
+    </button>
+    <ng-template #sppin>
+        <button class="sppin">
+            <mat-spinner *ngIf="load" [diameter]="30"></mat-spinner>
+        </button>
+    </ng-template>
+  </form>

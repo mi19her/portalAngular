@@ -1,0 +1,21 @@
+<form [formGroup]="formForgot">
+    <h2 class="margin">¿Olvidaste la contraseña?</h2>
+    <p>Si tu correo de usuario esta registrado, se le enviará un codigo de verificación</p>
+    <mat-form-field [hideRequiredMarker]="hideRequiredControl" >
+        <input matInput type="email" formControlName="email"
+            autocomplete="email" required>
+        <mat-label>Ingresa tu correo de usuario</mat-label>
+        <mat-error *ngIf="!emailInput.valid">
+            {{getMessageError()}}
+        </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" routerLinkActive="router-link-active" type="button"
+    (click)="sendCode()" [disabled]="!formForgot.valid" *ngIf="!load; else sppin">
+        Ingresar
+    </button>
+    <ng-template #sppin>
+        <button class="sppin">
+            <mat-spinner *ngIf="load" [diameter]="30"></mat-spinner>
+        </button>
+    </ng-template>
+</form>

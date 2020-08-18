@@ -1,0 +1,27 @@
+<form [formGroup]="formUser">
+    <h2 class="margin">¡Te damos la bienvenida!</h2>
+    <mat-form-field [hideRequiredMarker]="hideRequiredControl">
+        <input matInput type="email" formControlName="username" autocomplete="email" required>
+        <mat-label>Correo de usuario</mat-label>
+        <mat-error *ngIf="!emailInput.valid">
+            {{getEmailInputError()}}
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field [hideRequiredMarker]="hideRequiredControl">
+        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-label>Contraseña</mat-label>
+        <mat-error *ngIf="!passwordInput.valid">
+            {{getPasswordInputError()}}
+        </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="singnIn()" [disabled]="!formUser.valid" *ngIf="!load; else sppin">
+        Ingresar
+    </button>
+    <ng-template #sppin>
+        <button class="sppin">
+            <mat-spinner *ngIf="load" [diameter]="30"></mat-spinner>
+        </button>
+    </ng-template>
+    <a routerLink="../forgot-pass">¿Olvidaste la contraseña?</a>
+</form>

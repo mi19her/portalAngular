@@ -1,0 +1,56 @@
+<div>
+    <mat-toolbar color="primary" fxLayoutAlign="space-between start">
+        <div fxLayoutAlign="center">
+            <button mat-icon-button (click)="isExpanded = !isExpanded">
+                <mat-icon fxLayoutAlign="center">menu</mat-icon>
+            </button>
+            <img src="../../../assets/images/Logo_Ransa.svg" alt="" width="134">
+        </div>
+        <div fxLayout="row">
+            <p>{{firstName}} {{familyName}}</p>
+            <div class="circulo" *ngIf="familyName !== undefined"><h3 class="size">{{firstName.charAt(0)}}{{familyName.charAt(0)}}</h3></div>
+            <div class="circulo" *ngIf="familyName === undefined"><h3 class="size">{{firstName.charAt(0)}}</h3></div>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon mat-list-icon fxLayoutAlign="center" style="font-size: 20px; color: rgb(125 125 128)">
+                    arrow_drop_down
+                </mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <div style="padding-left: 20px; font-weight: 500; border-bottom: 1px solid #d2cece40" >
+                    <p matLine style="color: #009A3F" >{{firstName}} {{familyName}}</p>
+                    <p matLine style="color: #F39200; font-size: 12px">{{email}}</p>
+                </div>
+                <button mat-menu-item routerLink="/portal/change" routerLinkActive="activation">
+                    <mat-icon style="margin-right: -20px; margin-bottom: 10px;">lock</mat-icon >
+                    Cambiar contraseña
+                </button>
+                <button mat-menu-item (click)="signOut()">
+                    <mat-icon style="margin-right: -20px; margin-bottom: 10px;">exit_to_app</mat-icon>
+                    Cerrar sesión
+                </button>
+            </mat-menu>
+        </div>
+    </mat-toolbar>
+    <mat-sidenav-container class="example-container" autosize>
+        <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" mat-icon-button>
+            <mat-nav-list>
+                <div class="cliente">
+                    <app-client [isExpanded]="isExpanded"></app-client>
+                </div>
+                <mat-list-item routerLinkActive="active" class="mat-list-item-focus" (click)="isExpanded = !isExpanded" routerLink="/portal/home">
+                    <mat-icon mat-list-icon matTooltip="Inicio">home</mat-icon>
+                    <p matLine *ngIf="isExpanded">Inicio</p>
+                </mat-list-item>
+                <mat-list-item routerLinkActive="active" *ngFor="let option of config; index as i" 
+                (click)="isExpanded = !isExpanded" routerLink={{option.route}}>
+                    <mat-icon mat-list-icon matTooltip={{option.label.toString()}}>{{option.icon}}</mat-icon>
+                    <p matLine *ngIf="isExpanded">{{option.label}}</p>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-sidenav>
+        <div class="example-sidenav-content">
+            <router-outlet></router-outlet>
+        </div>
+
+    </mat-sidenav-container>
+</div>

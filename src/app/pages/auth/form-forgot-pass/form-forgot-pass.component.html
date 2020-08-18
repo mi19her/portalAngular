@@ -1,0 +1,34 @@
+<form [formGroup]="formForgot">
+    <h2 class="margin">Cambia tu contraseña</h2>
+    <p>Ingresa el código que enviamos a tu correo y cambia tu contraseña</p>
+    <mat-form-field [hideRequiredMarker]="hideRequiredControl">
+        <input matInput type="text" formControlName="code" required>
+        <mat-label >Codigo de verificación</mat-label>
+        <mat-error *ngIf="!codeInput.valid" >
+            {{messageErr}}
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field [hideRequiredMarker]="hideRequiredControl">
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="newpass" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-label>Nueva contraseña</mat-label>
+    </mat-form-field>
+    <mat-form-field [hideRequiredMarker]="hideRequiredControl">
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmpass" required >
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-label>Confirma tu nueva contraseña</mat-label>
+        <mat-error *ngIf="!confirmPass.valid" >
+            {{message()}}
+        </mat-error>
+    </mat-form-field>
+    <p class="size">Asegúrate que la contraseña tenga más de 6 caracteres, incluya mayúsculas, minúsculas, números y caracteres especiales</p>
+    <button mat-raised-button color="accent" routerLinkActive="router-link-active" type="button"(click)="changePass()" [disabled]="!formForgot.valid" *ngIf="!load; else sppin">
+        Ingresar
+    </button>
+    <ng-template #sppin>
+        <button class="sppin">
+            <mat-spinner *ngIf="load" [diameter]="30"></mat-spinner>
+        </button>
+    </ng-template>
+    <a routerLink="../../forgot-pass">No he recibido el código de verificación</a>
+</form>

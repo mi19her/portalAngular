@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0;
+    font-family: 'Univia Pro';
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 14px;
+}
+
+.mat-h2, .mat-title, .mat-typography h2 {
+    font-family: 'Univia Pro';
+    font-weight: bold;
+    font-style: normal;
+}
+    
+form > * {
+    margin-bottom: 1.5em;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+.mat-raised-button.mat-button-disabled:not([class*=mat-elevation-z]){
+    background-color:#93c38d;
+}
+.mat-raised-button.mat-accent.mat-button-disabled, .mat-raised-button.mat-warn.mat-button-disabled, .mat-raised-button.mat-button-disabled.mat-button-disabled, .mat-fab.mat-primary.mat-button-disabled, .mat-fab.mat-accent.mat-button-disabled, .mat-fab.mat-warn.mat-button-disabled, .mat-fab.mat-button-disabled.mat-button-disabled, .mat-mini-fab.mat-primary.mat-button-disabled, .mat-mini-fab.mat-accent.mat-button-disabled, .mat-mini-fab.mat-warn.mat-button-disabled, .mat-mini-fab.mat-button-disabled.mat-button-disabled {
+    color: rgb(255, 255, 255);
+}
+form {
+    width: 300px;
+    color: rgba(0, 0, 0, 0.8);
+}
+a {
+    color: #009B3A;
+    margin-top: 1.5em;
+    text-decoration: none ;
+}
+
+h2 {
+    color: #009B3A;
+}
+p {
+    color: #58595B;
+}
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #fff;
+}
+.mat-button .mat-button-wrapper>*, .mat-flat-button .mat-button-wrapper>*, .mat-stroked-button .mat-button-wrapper>*, .mat-raised-button .mat-button-wrapper>*, .mat-icon-button .mat-button-wrapper>*, .mat-fab .mat-button-wrapper>*, .mat-mini-fab .mat-button-wrapper>* {
+    display: contents;
+}
+/* portal  */
+ .mat-drawer {
+    background-color: #009A3F;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.mat-drawer-inner-container {
+    overflow: hidden;
+  }
+.mat-drawer-container {
+    color: rgb(0 0 0 / 78%);
+}
+
+.mat-toolbar.mat-primary {
+    color: #43a047;
+    background:#fff;
+    box-shadow: 0px 1px 0px #ECEEEF;
+}
